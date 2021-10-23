@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Войти{% endblock %}
+
+{% block content %}
+
+    <form class="login" method="post">
+        {% csrf_token %}
+        <h1>Вход</h1>
+        <input id="log" type="text" name="username" placeholder="Логин"><br>
+        <input id="pass" type="password" name="password" placeholder="Пароль"><br>
+        <input id="in" type="submit" value="Войти"><br>
+        <a href="{% url 'base:register' %}" class="but">Забыли пароль</a><br>
+        <a href="{% url 'base:register' %}" class="but">Регистрация</a>
+        
+    </form>
+
+{% endblock %}

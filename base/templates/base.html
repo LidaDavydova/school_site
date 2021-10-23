@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Главная страница{% endblock %}</title>
+        
+        <link rel="stylesheet" href="{% static 'base.css' %}" type="text/css">
+    </head>
+    <body>
+        {% block content %}
+            <a href="{% url 'base:projects' %}" class="button">Projects</a>
+        {% endblock %}
+    </body>
+<html>
