@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Войти{% endblock %}
+
+{% block content %}
+    <a href="{% url 'base:main' %}" class="button">Главная</a>
+    <a href="{% url 'base:logout' %}" class="button">Выйти</a>
+    
+    <p class="scores">Баллы: {{profile.scores}}</p>
+    
+    <p>Рейтинг</p>
+    
+    <table id="table">
+        {%for i in users%}
+            <tr>
+                <td></td>
+                <td>
+                    {{i.username}}
+                </td>
+                <td>
+                    {{i.scores}}
+                </td>
+        	</tr>
+    	{%endfor%}
+    </table>
+    <form method="post">
+    {% csrf_token %}
+        
+    </form>
+
+{% endblock %}

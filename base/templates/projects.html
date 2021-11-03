@@ -4,7 +4,16 @@
 {% block title %}Проекты{% endblock %}
 
 {% block content %}
-
-    <a href="{% url 'base:add_project' %}">Добавить</a>
-
+    <a href="{% url 'base:main' %}" class="button">Главная</a>
+    <div class="all">
+    {% for i in projects %}
+        <div class="project">
+            <h1>{{i.title}}</h1>
+            <h1>{{i.text}}</h1>
+        </div>
+    {% endfor %}
+    </div>
+    <a href="{% url 'base:add_project' %}" id="add">Добавить</a>
+  
+    
 {% endblock %}

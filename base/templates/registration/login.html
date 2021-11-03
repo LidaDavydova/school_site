@@ -6,8 +6,8 @@
 
 {% block content %}
 
-    <form class="login" method="post">
-        {% csrf_token %}
+    <form method="post" class="login">
+    {% csrf_token %}
         <h1>Вход</h1>
         <input id="log" type="text" name="username" placeholder="Логин"><br>
         <input id="pass" type="password" name="password" placeholder="Пароль"><br>

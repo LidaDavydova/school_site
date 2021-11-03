@@ -4,9 +4,12 @@
 {% block title %}Добавить{% endblock %}
 
 {% block content %}
-
+    <a href="{% url 'base:main' %}" class="button">Главная</a>
     <form method="post">
-    <input type="submit" value="Добавить">
+    {% csrf_token %}
+        {{form.title}}<br>
+        {{form.text}}<br>
+        <input type="submit" value="Добавить">
     </form>
 
 {% endblock %}

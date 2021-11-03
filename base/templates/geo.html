@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Добавить{% endblock %}
+
+{% block content %}
+    <a-scene id="img_360">
+      <a-sky src="../static/d.jpg" rotation="0 -130 0"></a-sky>
+    </a-scene>
+    
+    <div class="content_geo">
+        <div>
+        </div>
+    </div>
+    
+    <a href="{% url 'base:main' %}" class="button">Главная</a>
+{% endblock %}
