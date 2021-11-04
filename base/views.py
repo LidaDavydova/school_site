@@ -52,7 +52,9 @@ class Add_project(TemplateView):
             else:
                 form = ProjectsForm
             data['form'] = form
-        return render(request, self.template_name, data)
+            return render(request, self.template_name, data)
+        else:
+            return redirect('exel:login')
 
 def geo(request):
     data = {
@@ -97,11 +99,14 @@ def info(request):
     return render(request, 'info.html', data) 
 
 def profile(request):
-    data = {
-        'profile': Profile.objects.get(user_id=request.user.id),
-        'users': Profile.objects.order_by("-scores"),
-        }
-    return render(request, 'registration/profile.html', data)    
+    if request.user.is_authenticated:
+        data = {
+            'profile': Profile.objects.get(user_id=request.user.id),
+            'users': Profile.objects.order_by("-scores"),
+            }
+        return render(request, 'registration/profile.html', data)
+    else:
+        return redirect('base:login')    
 
 class RegisterView(CreateView):
     form_class  = RegisterUserForm
